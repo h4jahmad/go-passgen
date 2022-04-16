@@ -37,14 +37,11 @@ func main() {
 }
 
 func checkInput(input string) (output string, err error) {
-	// match, _ := regexp.MatchString("(?i)y{1}", "y")
-	match, _ := regexp.MatchString("^y$|^yes$", input)
+	match, err := regexp.MatchString(`(?i)^y$|^yes$|^n$|^no$`, input)
 	if match {
 		output = input
-		err = nil
-		return
 	} else {
 		err = errors.New(fmt.Sprintf("Not valid input: %s", input))
-		return
 	}
+	return
 }
