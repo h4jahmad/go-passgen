@@ -4,53 +4,54 @@ import (
 	"testing"
 )
 
+
 func TestCheckInput(t *testing.T) {
-	_, err := checkInput("y")
+	_, err := isYes("y")
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	val2, err2 := checkInput("ye")
+	_, err2 := isYes("ye")
 	if err2 == nil {
-		t.Fatalf("Non nil error: %s", val2)
+		t.Fatalf("Non nil error: %s", "ye")
 	}
 
-	_, err3 := checkInput("yes")
+	_, err3 := isYes("yes")
 	if err3 != nil {
 		t.Fatal(err3)
 	}
 	
-	val4, err4 := checkInput("ys")
+	_, err4 := isYes("ys")
 	if err4 == nil {
-		t.Fatalf("Non nil error: %s", val4)
+		t.Fatalf("Non nil error: %s", "ys")
 	}
 
-	_, err5 := checkInput("Y")
+	_, err5 := isYes("Y")
 	if err5 != nil {
 		t.Fatal(err5)
 	}
 
-	_, err6 := checkInput("YeS")
+	_, err6 := isYes("YeS")
 	if err6 != nil {
 		t.Fatal(err6)
 	}
 	
-	_, err7 := checkInput("n")
+	_, err7 := isYes("n")
 	if err7 != nil {
 		t.Fatal(err7)
 	}
 
-	_, err8 := checkInput("no")
+	_, err8 := isYes("no")
 	if err8 != nil {
 		t.Fatal(err8)
 	}
 
-	_, err9 := checkInput("N")
+	_, err9 := isYes("N")
 	if err9 != nil {
 		t.Fatal(err9)
 	}
 
-	_, err10 := checkInput("nO")
+	_, err10 := isYes("nO")
 	if err10 != nil {
 		t.Fatal(err10)
 	}
