@@ -6,4 +6,4 @@ Install using command below:
 
 Use using command below:
 
-`$ passgen`
+`$ go-passgen`
